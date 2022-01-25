@@ -8,7 +8,6 @@
 
 <script>
 import QRCode from "qrcode";
-import URLFactory from "../services/urlfactory";
 
 export default {
   name: 'QRCode',
