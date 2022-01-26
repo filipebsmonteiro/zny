@@ -152,7 +152,7 @@ export default {
   .portrait-and-landscape .flip-card-front {
     padding-top: 10px;
     justify-content: center;
-    background-image: url(~assets/cracha_frente.png);
+    //background-image: url(~assets/img/cracha_frente.png);
   }
 }
 
@@ -167,7 +167,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-image: url(~assets/cracha_frente_flip.png);
+    //background-image: url(~assets/img/cracha_frente_flip.png);
   }
 }
 
@@ -175,7 +175,7 @@ export default {
 .only-portrait .flip-card-front {
   padding-top: 10px;
   justify-content: center;
-  background-image: url(~assets/cracha_frente.png);
+  //background-image: url(~assets/img/cracha_frente.png);
 }
 
 /* only landsdcape */
@@ -187,7 +187,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-image: url(~assets/cracha_frente_flip.png);
+  //background-image: url(~assets/img/cracha_frente_flip.png);
 }
 
 @media print and (orientation: portrait) {

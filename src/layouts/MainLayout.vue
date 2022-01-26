@@ -1,44 +1,37 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="hHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+      <q-toolbar class="bg-black text-white">
+        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+        <q-toolbar-title>Zouk Needs You</q-toolbar-title>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-labelheader>
-          Essential Links
-        </q-item-labelheader>
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="bg-grey-10">
+      <q-list dark separator >
 
-        <a class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable" tabindex="0" href="https://quasar.dev" target="_blank">
-        <div class="q-focus-helper" tabindex="-1"></div>
-        <div class="q-item__section column q-item__section--side justify-center q-item__section--avatar">
-          <i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">school</i>
-        </div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label">Docs</div>
-          <div class="q-item__label q-item__label--caption text-caption">quasar.dev</div>
-        </div>
-        </a>
+        <q-item clickable @click="redirect('https://www.facebook.com/valvanessazouk/')">
+          <q-icon name="groups" size="sm" />
+          <div class="q-ml-lg">
+            <q-item-label>Facebook</q-item-label>
+            <q-item-label caption>Clique para informações</q-item-label>
+          </div>
+        </q-item>
+        <q-item clickable @click="redirect('https://t.me/joinchat/MfblyrcuJypkYzIx')">
+          <q-icon name="credit_card" size="sm" />
+          <div class="q-ml-lg">
+            <q-item-label>ZNY Course</q-item-label>
+            <q-item-label caption>Clique para informações</q-item-label>
+          </div>
+        </q-item>
+        <q-item clickable @click="redirect('https://t.me/joinchat/I2d7USdsYPgzZTdh')">
+          <q-icon name="credit_card" size="sm" />
+          <div class="q-ml-lg">
+            <q-item-label>Classes</q-item-label>
+            <q-item-label caption>Clique para informações</q-item-label>
+          </div>
+        </q-item>
 
       </q-list>
     </q-drawer>
@@ -54,8 +47,11 @@ import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   name: 'MainLayout',
-
-  components: {},
+  methods: {
+    redirect(url) {
+      window.open(url, '_blank');
+    }
+  },
 
   setup () {
     const leftDrawerOpen = ref(false)
