@@ -1,6 +1,6 @@
 <template>
-  <q-page class="flex column flex-center">
-    <FlipCard only-horizontal hide-print-button hide-flip-button>
+  <q-page class="flex flex-center">
+    <FlipCard only-horizontal hide-print-button hide-flip-button class="card">
       <template v-slot:card-front class="row">
         <div class="flex-center">
 
@@ -37,16 +37,16 @@
       </template>
     </FlipCard>
 
-    <q-input v-model="cursos" label="Quantidade de Cursos" class="q-mt-lg">
+    <q-input v-model="cursos" label="Quantidade de Cursos" min="0" max="10" readonly class="q-mt-lg q-mx-md">
       <template v-slot:prepend>
-        <q-btn flat @click="() => {cursos--}" icon-right="remove" />
+        <q-btn flat @click="() => {cursos--}" icon-right="remove" :disable="cursos === 0" />
       </template>
       <template v-slot:append>
-        <q-btn flat @click="() => {cursos++}" icon-right="add" />
+        <q-btn flat @click="() => {cursos++}" icon-right="add" :disable="cursos === 10" />
       </template>
     </q-input>
-    <q-input v-model="nome" label="Seu nome" maxlength="28" class="q-mt-md"/>
-    <q-input v-model="local" label="Local do último curso" class="q-mt-md"/>
+    <q-input v-model="nome" label="Seu nome" maxlength="28" class="q-mt-md q-mx-md"/>
+    <q-input v-model="local" label="Local do último curso" class="q-mt-md q-mx-md"/>
 
   </q-page>
 </template>
@@ -69,6 +69,16 @@ export default defineComponent({
 </script>
 
 <style scoped>
+@media screen and (max-width: 450px) {
+.card {
+    transform: scale(0.6) !important;
+    /* -webkit-transform-origin: left top;*/
+    transform-origin: center;
+    /*-webkit-transform-origin: 5% top;*/
+    /*-moz-transform-origin: left top;*/
+  }
+}
+
 :deep(.flip-card-front) {
   color: white !important;
   background: #232526;
@@ -77,6 +87,7 @@ export default defineComponent({
 }
 
 .q-field {
+  width: 100%;
   min-width: 50%;
 }
 
